@@ -72,6 +72,8 @@ dependencies {
   implementation(project(Modules.trackerPresentation))
   implementation(project(Modules.trackerDomain))
   implementation(project(Modules.trackerData))
+  implementation(project(Modules.coreUi))
+
 
   implementation(AndroidX.coreKtx)
   implementation(AndroidX.appCompat)
