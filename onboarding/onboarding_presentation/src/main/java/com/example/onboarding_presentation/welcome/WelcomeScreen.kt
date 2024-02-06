@@ -1,12 +1,10 @@
 package com.example.onboarding_presentation.welcome
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Arrangement.Absolute.Center
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -15,12 +13,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.example.core.R
+import com.example.core.navigation.routes
+import com.example.core.util.UiEvent
 import com.example.core_ui.LocalSpacing
 import com.example.onboarding_presentation.components.ActionButton
 
 
 @Composable
-fun WelcomeScreen(modifier: Modifier = Modifier) {
+fun WelcomeScreen(
+  onNavigate: (UiEvent.Navigate) -> Unit
+) {
 
   val spacing = LocalSpacing.current
   Column(
@@ -37,7 +39,7 @@ fun WelcomeScreen(modifier: Modifier = Modifier) {
     ActionButton(
       text = stringResource(id = R.string.next),
       isEnabled = true,
-      onClick = { /*TODO*/ },
+      onClick = { onNavigate(UiEvent.Navigate(routes.age)) },
       modifier = Modifier.align(Alignment.CenterHorizontally))
   }
 

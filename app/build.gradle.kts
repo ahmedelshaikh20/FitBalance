@@ -1,53 +1,66 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+  id("com.android.application")
+  id("org.jetbrains.kotlin.android")
   id("kotlin-kapt")
+  id("dagger.hilt.android.plugin")
+
 }
 
 android {
-    namespace = "com.example.fitbalance"
-    compileSdk = ProjectConfig.compileSdk
+  namespace = "com.example.fitbalance"
+  compileSdk = ProjectConfig.compileSdk
 
-    defaultConfig {
-        applicationId = "com.example.fitbalance"
-        minSdk = ProjectConfig.minSdk
-        targetSdk = ProjectConfig.targetSdk
-        versionCode = 1
-        versionName = "1.0"
+  defaultConfig {
+    applicationId = "com.example.fitbalance"
+    minSdk = ProjectConfig.minSdk
+    targetSdk = ProjectConfig.targetSdk
+    versionCode = 1
+    versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    vectorDrawables {
+      useSupportLibrary = true
+    }
+  }
+
+  buildTypes {
+    release {
+      isMinifyEnabled = false
+      proguardFiles(
+        getDefaultProguardFile("proguard-android-optimize.txt"),
+        "proguard-rules.pro"
+      )
+    }
+  }
+  compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_18
+    targetCompatibility = JavaVersion.VERSION_18
+  }
+  kotlinOptions {
+    jvmTarget = "18"
+  }
+  buildFeatures {
+    compose = true
+  }
+  composeOptions {
+    kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
+  }
+  packaging {
+    resources {
+      excludes += "/META-INF/{AL2.0,LGPL2.1}"
+    }
+  }
+  hilt {
+    enableAggregatingTask = false
+  }
+  kapt {
+    arguments {
+      arg("argumentIncremental", "true")
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Compose.composeCompilerVersion
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
+    correctErrorTypes = true
+
+  }
 }
 
 dependencies {
