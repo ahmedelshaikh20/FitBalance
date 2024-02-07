@@ -16,8 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.core.navigation.routes
 import com.example.fitbalance.navigation.navigate
 import com.example.fitbalance.ui.theme.FitbalanceTheme
+import com.example.onboarding_presentation.gender.screen.GenderScreen
 import com.example.onboarding_presentation.welcome.WelcomeScreen
-import dagger.hilt.EntryPoint
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,12 +32,12 @@ class MainActivity : ComponentActivity() {
           color = MaterialTheme.colorScheme.background
         ) {
           val navController = rememberNavController()
-          val navHost = NavHost(navController = navController, startDestination = routes.welcome) {
-            composable(routes.welcome) {
+          val navHost = NavHost(navController = navController, startDestination = routes.WELCOME) {
+            composable(routes.WELCOME) {
               WelcomeScreen(onNavigate = navController::navigate)
             }
-            composable(routes.age) {
-
+            composable(routes.Gender) {
+            GenderScreen(onNavigate = navController::navigate)
             }
           }
         }
