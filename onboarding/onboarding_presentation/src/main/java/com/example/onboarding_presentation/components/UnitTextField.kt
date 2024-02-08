@@ -33,13 +33,10 @@ fun UnitTextField(
     color = MaterialTheme.colors.primaryVariant
   )
 ) {
-  var text by remember {
-    mutableStateOf(value)
-  }
+
   Row(modifier = modifier, horizontalArrangement = Arrangement.Center) {
     BasicTextField(
-      value = text, onValueChange = {
-        text = it
+      value = value, onValueChange = {
         onValueChange(it)
       },
       textStyle = textStyle,

@@ -1,9 +1,12 @@
 package com.example.fitbalance
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Scaffold
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,12 +19,14 @@ import androidx.navigation.compose.rememberNavController
 import com.example.core.navigation.routes
 import com.example.fitbalance.navigation.navigate
 import com.example.fitbalance.ui.theme.FitbalanceTheme
+import com.example.onboarding_presentation.age.screen.AgeScreen
 import com.example.onboarding_presentation.gender.screen.GenderScreen
 import com.example.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+  @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContent {
@@ -31,15 +36,23 @@ class MainActivity : ComponentActivity() {
           modifier = Modifier.fillMaxSize(),
           color = MaterialTheme.colorScheme.background
         ) {
-          val navController = rememberNavController()
-          val navHost = NavHost(navController = navController, startDestination = routes.WELCOME) {
-            composable(routes.WELCOME) {
-              WelcomeScreen(onNavigate = navController::navigate)
-            }
-            composable(routes.Gender) {
-            GenderScreen(onNavigate = navController::navigate)
-            }
+          val scaffoldState = rememberScaffoldState()
+          Scaffold(modifier = Modifier.fillMaxSize(), scaffoldState = scaffoldState) {
+            val navController = rememberNavController()
+            val navHost =
+              NavHost(navController = navController, startDestination = routes.WELCOME) {
+                composable(routes.WELCOME) {
+                  WelcomeScreen(onNavigate = navController::navigate)
+                }
+                composable(routes.GENDER) {
+                  GenderScreen(onNavigate = navController::navigate)
+                }
+                composable(routes.AGE) {
+                  AgeScreen(scaffoldState, onNavigate = navController::navigate)
+                }
+              }
           }
+
         }
       }
     }
