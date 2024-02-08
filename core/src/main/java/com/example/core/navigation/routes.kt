@@ -6,5 +6,7 @@ object routes {
   const val GENDER = "gender"
   const val WEIGHT = "weight"
   const val HEIGHT = "height"
+  const val ACTIVITY_LEVEL = "activity_level"
+  const val GOAL = "goal"
 
 }

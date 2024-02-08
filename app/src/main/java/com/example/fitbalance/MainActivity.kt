@@ -22,6 +22,7 @@ import com.example.fitbalance.ui.theme.FitbalanceTheme
 import com.example.onboarding_presentation.age.screen.AgeScreen
 import com.example.onboarding_presentation.gender.screen.GenderScreen
 import com.example.onboarding_presentation.height.screen.HeightScreen
+import com.example.onboarding_presentation.weight.screen.WeightScreen
 import com.example.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -53,6 +54,9 @@ class MainActivity : ComponentActivity() {
                 }
                 composable(routes.HEIGHT) {
                   HeightScreen(scaffoldState, onNavigate = navController::navigate)
+                }
+                composable(routes.WEIGHT) {
+                  WeightScreen(scaffoldState, onNavigate = navController::navigate)
                 }
               }
           }
