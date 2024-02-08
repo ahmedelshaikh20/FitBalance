@@ -21,11 +21,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AgeViewModel @Inject constructor(
-  val preferences: MyPreferences,
-  val filterOutDigits: FilterOutDigits
+  private val preferences: MyPreferences,
+  private val filterOutDigits: FilterOutDigits
 ) : ViewModel() {
 
-  var age by mutableStateOf<String>("0")
+  var age by mutableStateOf<String>("5")
     private set
 
   var _uiEvent = Channel<UiEvent>()
@@ -57,7 +57,7 @@ class AgeViewModel @Inject constructor(
 
         } else {
           preferences.saveAge(ageNumber)
-          _uiEvent.send(UiEvent.Navigate(route = routes.WEIGHT))
+          _uiEvent.send(UiEvent.Navigate(route = routes.HEIGHT))
         }
 
       }
