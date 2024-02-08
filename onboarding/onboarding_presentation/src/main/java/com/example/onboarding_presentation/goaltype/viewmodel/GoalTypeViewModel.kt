@@ -1,4 +1,5 @@
-package com.example.onboarding_presentation.activitylevel.viewmodel
+package com.example.onboarding_presentation.goaltype.viewmodel
+
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -7,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.data.pref.MyPreferences
 import com.example.core.domain.model.ActivityLevel
+import com.example.core.domain.model.GoalType
 import com.example.core.navigation.routes
 import com.example.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,23 +18,23 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ActivityLevelViewModel @Inject constructor(
+class GoalTypeViewModel @Inject constructor(
   val preferences: MyPreferences
 ) : ViewModel() {
-  var activityLevel by mutableStateOf<ActivityLevel>(ActivityLevel.Medium)
+  var goalType by mutableStateOf<GoalType>(GoalType.KeepWeight)
     private set
 
   var _uiEvent = Channel<UiEvent>()
   val uiEvent = _uiEvent.receiveAsFlow()
 
-  fun onActivityLevelChange(newActivityLevel: ActivityLevel) {
-    activityLevel = newActivityLevel
+  fun onGoalTypeChange(newGoalType: GoalType) {
+    goalType = newGoalType
   }
 
 
   fun onNextClick() {
     viewModelScope.launch {
-      preferences.saveActivityLevel(activityLevel)
+      preferences.saveGoalType(goalType)
       _uiEvent.send(
         UiEvent.Navigate(route = routes.GOAL)
       )
