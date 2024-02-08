@@ -16,9 +16,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.core.domain.model.ActivityLevel
 import com.example.core.navigation.routes
 import com.example.fitbalance.navigation.navigate
 import com.example.fitbalance.ui.theme.FitbalanceTheme
+import com.example.onboarding_presentation.activitylevel.screen.ActivityLevelScreen
 import com.example.onboarding_presentation.age.screen.AgeScreen
 import com.example.onboarding_presentation.gender.screen.GenderScreen
 import com.example.onboarding_presentation.height.screen.HeightScreen
@@ -57,6 +59,9 @@ class MainActivity : ComponentActivity() {
                 }
                 composable(routes.WEIGHT) {
                   WeightScreen(scaffoldState, onNavigate = navController::navigate)
+                }
+                composable(routes.ACTIVITY_LEVEL) {
+                  ActivityLevelScreen(onNavigate = navController::navigate)
                 }
               }
           }

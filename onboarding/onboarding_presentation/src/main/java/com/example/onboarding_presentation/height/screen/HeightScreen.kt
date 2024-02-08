@@ -3,8 +3,11 @@ package com.example.onboarding_presentation.height.screen
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -52,7 +55,8 @@ fun HeightScreen(
       modifier = Modifier.fillMaxSize(),
       verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally
     ) {
-      Text(text = stringResource(id = R.string.whats_your_height))
+      Text(text = stringResource(id = R.string.whats_your_height),style = MaterialTheme.typography.h3)
+      Spacer(modifier = Modifier.height(LocalSpacing.current.spaceMedium))
       UnitTextField(value = heightViewModel.height, onValueChange = {
         if (it.length <= 3)
           heightViewModel.onHeightChange(it)

@@ -47,7 +47,7 @@ fun SelectableButton(
         .clickable {
             onClick()
         }
-        .padding(LocalSpacing.current.spaceMedium),
+        .padding(LocalSpacing.current.spaceSmall),
     contentAlignment = Alignment.Center,
 
     ) {
