@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import com.example.core.data.pref.MyPreferences
 import com.example.core.domain.prefrences.Preferences
 import com.example.core.domain.usecase.FilterOutDigits
+import com.example.core.domain.usecase.ValidateNutrients
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,5 +36,10 @@ object AppModule {
     return FilterOutDigits()
   }
 
+  @Provides
+  @Singleton
+  fun provideNutrientValidationUseCase(): ValidateNutrients {
+    return ValidateNutrients()
+  }
 
 }

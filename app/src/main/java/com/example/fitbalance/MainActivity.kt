@@ -25,6 +25,7 @@ import com.example.onboarding_presentation.activitylevel.screen.GoalTypeScreen
 import com.example.onboarding_presentation.age.screen.AgeScreen
 import com.example.onboarding_presentation.gender.screen.GenderScreen
 import com.example.onboarding_presentation.height.screen.HeightScreen
+import com.example.onboarding_presentation.nutrientgoal.screen.NutrientGoalScreen
 import com.example.onboarding_presentation.weight.screen.WeightScreen
 import com.example.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -66,6 +67,9 @@ class MainActivity : ComponentActivity() {
                 }
                 composable(routes.GOAL) {
                   GoalTypeScreen(onNavigate = navController::navigate)
+                }
+                composable(routes.NUTRIENT_GOAL) {
+                  NutrientGoalScreen(scaffoldState , onNavigate = navController::navigate)
                 }
               }
           }

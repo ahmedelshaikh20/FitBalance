@@ -36,7 +36,7 @@ class GoalTypeViewModel @Inject constructor(
     viewModelScope.launch {
       preferences.saveGoalType(goalType)
       _uiEvent.send(
-        UiEvent.Navigate(route = routes.GOAL)
+        UiEvent.Navigate(route = routes.NUTRIENT_GOAL)
       )
     }
   }
