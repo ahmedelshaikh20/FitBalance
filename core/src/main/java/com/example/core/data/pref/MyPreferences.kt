@@ -8,7 +8,8 @@ import com.example.core.domain.model.UserInfo
 import com.example.core.domain.prefrences.Preferences
 import javax.inject.Inject
 
-class MyPreferences @Inject constructor(private val sharedPreferences: SharedPreferences) : Preferences {
+class MyPreferences @Inject constructor(private val sharedPreferences: SharedPreferences) :
+  Preferences {
   override fun saveGender(gender: Gender) {
     sharedPreferences.edit()
       .putString(Preferences.KEY_GENDER, gender.name)
@@ -87,5 +88,15 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
 
       )
 
+  }
+
+  override fun shouldShowOnBoarding(shouldShow: Boolean) {
+    sharedPreferences.edit()
+      .putBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, shouldShow)
+      .apply()
+  }
+
+  override fun loadShouldShowOnBoarding(): Boolean {
+    return sharedPreferences.getBoolean(Preferences.KEY_SHOULD_SHOW_ONBOARDING, true)
   }
 }

@@ -9,6 +9,7 @@ object routes {
   const val ACTIVITY_LEVEL = "activity_level"
   const val GOAL = "goal"
   const val NUTRIENT_GOAL = "nutrient_goal"
+  const val SEARCH = "search"
 
 
 }
