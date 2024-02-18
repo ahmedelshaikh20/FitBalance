@@ -10,7 +10,7 @@ import com.example.core.util.UiEvent
 import com.example.tracker_domain.usecases.TrackerUseCases
 import com.example.tracker_presentation.event.TrackerOverviewEvent
 import com.example.tracker_presentation.event.TrackerOverviewState
-import com.plcoding.core.navigation.Route
+import com.example.core.navigation.routes
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
@@ -44,7 +44,7 @@ class TrackerOverviewViewModel @Inject constructor(
         viewModelScope.launch {
           _uiEvent.send(
             UiEvent.Navigate(
-              route = Route.SEARCH
+              route = routes.SEARCH
                 + "/${event.meal.mealType.name}"
                 + "/${state.date.dayOfMonth}"
                 + "/${state.date.monthValue}"

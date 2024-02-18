@@ -1,6 +1,5 @@
 package com.example.tracker_presentation.event
 
-import com.example.tracker_domain.model.TrackableFood
 import com.example.tracker_domain.model.TrackedFood
 import com.example.tracker_presentation.model.Meal
 

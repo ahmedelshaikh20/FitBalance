@@ -1,6 +1,7 @@
 package com.example.core.data.pref
 
 import android.content.SharedPreferences
+import android.util.Log
 import com.example.core.domain.model.ActivityLevel
 import com.example.core.domain.model.Gender
 import com.example.core.domain.model.GoalType
@@ -66,10 +67,9 @@ class MyPreferences @Inject constructor(private val sharedPreferences: SharedPre
   }
 
   override fun loadUserInfo(): UserInfo {
+
     return UserInfo(
-      gender = Gender.fromString(
-        sharedPreferences.getString(Preferences.KEY_GENDER, null) ?: "male"
-      ),
+      gender = Gender.fromString(sharedPreferences.getString(Preferences.KEY_GENDER , null) ?: Gender.Male.name),
       age = sharedPreferences.getInt(Preferences.KEY_AGE, -1),
       height = sharedPreferences.getInt(Preferences.KEY_HEIGHT, -1),
       weight = sharedPreferences.getFloat(Preferences.KEY_WEIGHT, -1.0f),

@@ -28,6 +28,8 @@ import com.example.onboarding_presentation.height.screen.HeightScreen
 import com.example.onboarding_presentation.nutrientgoal.screen.NutrientGoalScreen
 import com.example.onboarding_presentation.weight.screen.WeightScreen
 import com.example.onboarding_presentation.welcome.WelcomeScreen
+import com.example.tracker_presentation.trackeroverview.components.NutrientHeader
+import com.example.tracker_presentation.trackeroverview.screen.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -70,6 +72,9 @@ class MainActivity : ComponentActivity() {
                 }
                 composable(routes.NUTRIENT_GOAL) {
                   NutrientGoalScreen(scaffoldState , onNavigate = navController::navigate)
+                }
+                composable(routes.OVERVIEW) {
+                  TrackerOverviewScreen(onNavigate = navController::navigate)
                 }
               }
           }

@@ -25,7 +25,7 @@ interface Preferences {
   companion object {
 
     const val KEY_AGE = "age"
-    const val KEY_GENDER = "age"
+    const val KEY_GENDER = "gender"
     const val KEY_HEIGHT = "height"
     const val KEY_WEIGHT = "weight"
     const val KEY_ACTIVITY_LEVEL = "activity_level"

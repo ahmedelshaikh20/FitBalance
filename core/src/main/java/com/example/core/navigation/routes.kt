@@ -10,6 +10,7 @@ object routes {
   const val GOAL = "goal"
   const val NUTRIENT_GOAL = "nutrient_goal"
   const val SEARCH = "search"
+  const val OVERVIEW = "overview"
 
 
 }

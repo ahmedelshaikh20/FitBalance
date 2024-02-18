@@ -60,7 +60,7 @@ class NutrientGoalViewModel @Inject constructor(
               preferences.saveProteinRatio(validateResult.proteinRatio.toFloat())
               preferences.saveFatsRatio(validateResult.fatsRatio.toFloat())
               _uiEvent.send(
-                UiEvent.Navigate(route = routes.NUTRIENT_GOAL)
+                UiEvent.Navigate(route = routes.OVERVIEW)
               )
             }
           }
