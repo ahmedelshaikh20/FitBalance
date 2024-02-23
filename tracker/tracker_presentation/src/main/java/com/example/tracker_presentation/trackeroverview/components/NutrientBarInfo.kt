@@ -1,5 +1,6 @@
 package com.example.tracker_presentation.trackeroverview.components
 
+import android.util.Log
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
@@ -41,12 +42,17 @@ fun NutrientBarInfo(
     Animatable(0f)
   }
   LaunchedEffect(key1 = value) {
+    Log.d("loool", value.toString())
+    Log.d("loool", goal.toString())
+
     angleRatio.animateTo(
-      targetValue = if (goal > 0) {
-        value / goal.toFloat()
-      } else 0f,
+      targetValue = (if (goal > 0) {
+          value / (goal.toFloat()/100)
+      } else 0f) ,
       animationSpec = tween(300)
     )
+    Log.d("loool", angleRatio.value.toString())
+
   }
   Box(
     modifier = modifier,

@@ -1,5 +1,6 @@
 package com.example.tracker_presentation.viewmodel
 
+import android.annotation.SuppressLint
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -40,6 +41,7 @@ class TrackerOverviewViewModel @Inject constructor(
   }
 
 
+  @SuppressLint("SuspiciousIndentation")
   fun onEvent(event: TrackerOverviewEvent) {
     when (event) {
       is TrackerOverviewEvent.onAddFoodClick -> {
