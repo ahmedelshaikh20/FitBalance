@@ -26,8 +26,11 @@ fun DaySelector(
   modifier: Modifier = Modifier
 ) {
 
-  Row(modifier = modifier.fillMaxWidth() , verticalAlignment = Alignment.CenterVertically ,
-    horizontalArrangement = Arrangement.SpaceBetween) {
+  Row(
+    modifier = modifier.fillMaxWidth(),
+    verticalAlignment = Alignment.CenterVertically,
+    horizontalArrangement = Arrangement.SpaceBetween
+  ) {
     IconButton(onClick = onPreviousClick) {
       Icon(
         imageVector = Icons.Default.ArrowBack,

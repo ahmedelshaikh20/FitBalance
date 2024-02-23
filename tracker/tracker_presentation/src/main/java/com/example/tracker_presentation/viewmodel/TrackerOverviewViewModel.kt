@@ -35,6 +35,8 @@ class TrackerOverviewViewModel @Inject constructor(
   init {
     // To Not to show onBoarding Process Again
     preferences.shouldShowOnBoarding(false)
+    viewModelScope.launch {
+    refreshFood()}
   }
 
 
@@ -81,6 +83,7 @@ class TrackerOverviewViewModel @Inject constructor(
       }
 
       is TrackerOverviewEvent.onToggleMealClick -> {
+        viewModelScope.launch {
         state = state.copy(
           meals = state.meals.map {
             if (it.name == event.meal.name) {
@@ -88,8 +91,9 @@ class TrackerOverviewViewModel @Inject constructor(
             } else it
           }
         )
+          refreshFood()
       }
-    }
+    }}
   }
 
 
