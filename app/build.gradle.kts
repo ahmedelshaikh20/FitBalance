@@ -76,7 +76,7 @@ dependencies {
   implementation(Compose.activityCompose)
 
   implementation(DaggerHilt.hiltAndroid)
-  implementation("androidx.compose.material3:material3:1.1.2")
+  implementation("androidx.compose.material3:material3:1.2.0")
   kapt(DaggerHilt.hiltCompiler)
 
   implementation(project(Modules.core))
