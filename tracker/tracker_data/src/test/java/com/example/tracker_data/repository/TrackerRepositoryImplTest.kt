@@ -1,14 +1,13 @@
 package com.example.tracker_data.repository
 
 import com.example.tracker_data.remote.OpenFoodApi
+import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
-import org.junit.Assert.*
-import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test
 import retrofit2.Retrofit
