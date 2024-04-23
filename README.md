@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher" align="center" width="128" height="128" />
+  <img src="images/fit_icon.jpeg" align="center" width="128" height="128" />
 <p>
 
 <h1 align="center">Fit Balance App</h1>
@@ -14,6 +14,7 @@
 - <b>Jetpack Compose:</b> Used Modern Tech of Jetpack Compose.
 - <b>Shared Preferences:</b> Used for Saving User Preferences ex: Goal, Gender... etc.
 - <b>MVVM Architecture:</b> Used for each feature module.
+- <b>Room Database:</b> Used to save your tracked meals in user local storage.
 
 
 
